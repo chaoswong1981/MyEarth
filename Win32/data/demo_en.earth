@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<map version="2">
+  <options lighting="true" name="SXDemo" type="geocentric" />
+  
+	<image name="base_image" driver="tms">
+        <url>./image/tms.xml</url>
+        <cache_policy usage="no_cache"/>
+    </image>	
+	
+	<elevation name="base_elevation" driver="tms">
+        <url>./dem/tms.xml</url>
+        <cache_policy usage="no_cache"/>
+    </elevation>
+	
+	
+  <model name="world_polygon" driver="feature_geom">
+        <features name="world_polygon" driver="ogr">
+            <url>./shps/world.shp</url>
+            <build_spatial_index>true</build_spatial_index>
+        </features>
+                
+		<styles>
+            <style type="text/css">
+                states {
+                    stroke:          #ffff00;
+                    altitude-offset: 1000;
+                    render-lighting: false;
+                    altitude-offset: 100;
+                    altitude-clamping: terrain-gpu;
+                }                    
+            </style>
+        </styles>
+    </model>
+	
+    <model name="world_label" driver="feature_geom">
+        <features name="world_label" driver="ogr">
+            <url>./shps/world.shp</url>
+        </features>
+        <layout crop_features="true">
+            <level style="lo" max_range="6000000000" min_range="100000"/>
+        </layout>
+        <styles>
+            <style type="text/css">
+                lo {
+					icon: "./models/placemark_province.png";
+					icon-placement: centroid;
+					icon-scale: 1.0;
+					icon-occlusion-cull: true;
+					icon-occlusion-cull-altitude: 8000;
+					icon-declutter: true;
+					text-content: [CNTRY_NAME];
+					text-size:30;
+					text-color:#434343
+					altitude-offset: 100;
+					altitude-clamping: terrain-gpu;
+                }     
+            </style>
+        </styles>      
+    </model>
+
+    <options lighting="true"/>
+</map>
