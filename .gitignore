@@ -1,0 +1,8 @@
+win32/
+ipch/
+*.sdf
+*.suo
+*.opensdf
+generatedfiles/
+release/
+debug/
