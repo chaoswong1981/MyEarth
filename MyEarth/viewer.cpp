@@ -39,7 +39,7 @@ bool Viewer::initScene(std::string& earthfile)
 	osg::Node* earthNode = osgDB::readNodeFile(earthfile);
 	if (!earthNode)
 	{
-		QMessageBox::warning(0, "警告", "init.earth 文件不存在或加载失败");
+		QMessageBox::warning(0, "警告", ".earth 文件不存在或加载失败");
 		return false;
 	}
 

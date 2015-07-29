@@ -50,7 +50,8 @@
 					icon-declutter: true;
 					text-content: [NAME];
 					text-size:30;
-					text-color:#434343
+					text-color:#434343;
+					text-encoding:ascii;
 					altitude-offset: 100;
 					altitude-clamping: terrain-gpu;
                 }     
